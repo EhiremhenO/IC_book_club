@@ -1,0 +1,7 @@
+// Version: 1.0.0
+type Book = {author : Text; summary : Text; title : Text};
+type Member = {age : Nat; favoriteBook : Text; name : Text};
+actor {
+  stable var bookBackup : [(Text, Book)];
+  stable var memberBackup : [(Text, Member)]
+};

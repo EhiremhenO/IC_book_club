@@ -1,0 +1,38 @@
+type Member = 
+ record {
+   age: nat;
+   favoriteBook: text;
+   name: text;
+ };
+type Book = 
+ record {
+   author: text;
+   summary: text;
+   title: text;
+ };
+service : {
+  addBook: (text, text, text, text) -> ();
+  addMember: (text, text, nat, text) -> ();
+  filterBooks: (text) -> (vec record {
+                                text;
+                                Book;
+                              }) query;
+  filterMembers: (text) -> (vec record {
+                                  text;
+                                  Member;
+                                }) query;
+  getAllBooks: () -> (vec record {
+                            text;
+                            Book;
+                          }) query;
+  getAllMembers: () -> (vec record {
+                              text;
+                              Member;
+                            }) query;
+  getBook: (text) -> (opt Book) query;
+  getBooksCount: () -> (nat) query;
+  getMember: (text) -> (opt Member) query;
+  getMembersCount: () -> (nat) query;
+  removeBook: (text) -> ();
+  removeMember: (text) -> ();
+}
